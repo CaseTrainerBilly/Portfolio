@@ -1,0 +1,138 @@
+.heroBackground {
+  background-color: #ffffff;
+}
+
+.shapesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.5;
+  transition: transform 0.1s linear;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.shape0 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-color: #ff4d4d;
+}
+
+.shape1 {
+  width: 25px;
+  height: 25px;
+  border-color: #00ffcc;
+}
+
+.shape2 {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 26px solid #1affff;
+  border-top: transparent;
+  background: none;
+  position: relative;
+}
+
+.shape2::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: -13px;
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-bottom: 22px solid white;
+  border-top: 1px solid transparent;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, 20px) rotate(90deg);
+  }
+  50% {
+    transform: translate(40px, 10px) rotate(180deg);
+  }
+  75% {
+    transform: translate(20px, -20px) rotate(270deg);
+  }
+}
+
+.shape:nth-child(even) {
+  animation-direction: reverse;
+}
+
+.shape:nth-child(3n) {
+  animation-duration: 35s;
+}
+
+.shape:nth-child(5n) {
+  animation-duration: 45s;
+}
+
+.shape:nth-child(7n) {
+  animation-duration: 55s;
+}
+
+.shape:nth-child(11n) {
+  animation-duration: 65s;
+}
+
+.forceField {
+  position: absolute;
+  width: 50px; /* Adjusted size */
+  height: 50px; /* Adjusted size */
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 1px solid red; /* Temporary border for debugging */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* Increased bounce height */
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.popup-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.popup-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.popup-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.popup-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
