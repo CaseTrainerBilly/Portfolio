@@ -10,7 +10,7 @@ export default function About() {
           </div>
           <div className="md:w-1/2 md:pl-8">
             <p className="text-xl text-gray-700">
-              Your intro goes here. Describe your background, experience, and what you're passionate about in software engineering.
+              Your introduction goes here. Describe your background, experience, and what you're passionate about in software engineering.
             </p>
           </div>
         </div>
