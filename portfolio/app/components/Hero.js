@@ -12,6 +12,11 @@ export default function Hero() {
   const [shapes, setShapes] = useState([]); // State to hold shapes
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isPopupOpen, setIsPopupOpen] = useState(false); // State to manage popup visibility
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -25,6 +30,8 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    if (!hasMounted) return;
+
     const fixedShapes = [
       { component: <Circle color="#FF5733" rotation={45} />, x: '5%', y: '10%' },
       { component: <Circle color="#3498DB" rotation={45} />, x: '15%', y: '25%' },
@@ -79,12 +86,12 @@ export default function Hero() {
     });
 
     setShapes(shapeElements); // Set the fixed shapes to state
-  }, [mousePosition]); // Run when mousePosition changes
+  }, [mousePosition, hasMounted]); // Run when mousePosition or hasMounted changes
 
   return (
     <section className={`relative h-screen flex items-center justify-center overflow-hidden ${styles.heroBackground} dark:bg-gray-900`}>
       <div id="shapes-mask" className="is-loaded">
-        {shapes}
+        {hasMounted && shapes}
       </div>
       <div className={`relative z-10 text-center ${isPopupOpen ? 'blur-sm' : ''}`}>
         <h1 className="text-5xl font-bold mb-4 text-gray-900 dark:text-white">Billy Richardson</h1>
