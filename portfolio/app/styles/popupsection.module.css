@@ -45,22 +45,36 @@
   
   /* Section styling */
   .popupSection {
-    background-color: #fff;
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
     width: 50%;
     height: 80vh;
     padding: 20px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
-    color: #222;
+  }
+  
+  .popupSection h2, .popupSection h3, .popupSection span, .popupSection p {
+    color: var(--text-color) !important;
   }
   
   @media (prefers-color-scheme: dark) {
     .popupSection {
-      background-color: #23272f;
-      color: #f3f4f6;
+      background-color: #23272f !important;
+      color: #f3f4f6 !important;
     }
     .popupSection h2, .popupSection h3, .popupSection span, .popupSection p {
-      color: #f3f4f6;
+      color: #f3f4f6 !important;
+    }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    .popupSection {
+      background-color: #fff !important;
+      color: #222 !important;
+    }
+    .popupSection h2, .popupSection h3, .popupSection span, .popupSection p {
+      color: #222 !important;
     }
   }
   
@@ -220,4 +234,22 @@
   .techGrid {
     justify-content: center;
   }
+}
+
+.light {
+  background-color: #fff !important;
+  color: #222 !important;
+}
+
+.dark {
+  background-color: #23272f !important;
+  color: #f3f4f6 !important;
+}
+
+.light h2, .light h3, .light span, .light p {
+  color: #222 !important;
+}
+
+.dark h2, .dark h3, .dark span, .dark p {
+  color: #f3f4f6 !important;
 }

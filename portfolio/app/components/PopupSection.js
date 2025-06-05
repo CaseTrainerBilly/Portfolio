@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
 import styles from '../styles/popupsection.module.css'; // CSS module for scoped styles
 
 const PopupSection = ({ isOpen, onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (isOpen) {
@@ -19,8 +21,8 @@ const PopupSection = ({ isOpen, onClose }) => {
 
   return (
     <div className={`${styles.popupOverlay} ${isVisible ? styles.fadeIn : styles.fadeOut}`}>
-      <div className={`${styles.popupContent}`}>
-        <div className={`${styles.popupSection} ${isVisible ? styles.slideLeft : styles.hideLeft}`}>
+      <div className={`${styles.popupContent} ${theme === 'dark' ? styles.dark : styles.light}`}>
+        <div className={`${styles.popupSection} ${isVisible ? styles.slideLeft : styles.hideLeft} ${theme === 'dark' ? styles.dark : styles.light}`}>
           <button onClick={onClose} className={styles.closeButton}>
             &times;
           </button>
@@ -53,7 +55,7 @@ const PopupSection = ({ isOpen, onClose }) => {
             </div>
           </div>
         </div>
-        <div className={`${styles.popupSection} ${isVisible ? styles.slideRight : styles.hideRight}`}>
+        <div className={`${styles.popupSection} ${isVisible ? styles.slideRight : styles.hideRight} ${theme === 'dark' ? styles.dark : styles.light}`}>
           <h3>Skills & Technologies</h3>
           <div className={styles.techGrid}>
             {[
