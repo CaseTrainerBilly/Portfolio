@@ -13,6 +13,8 @@ export default function ProjectDetails({ params }) {
         { name: 'Clerk', image: 'https://ph-files.imgix.net/297bc3d4-bd2e-4eaa-8fb6-a289cf61ea91.png?auto=format' },
         { name: 'MongoDB', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
       ],
+      github: 'https://github.com/yourusername/recruitment-web-app',
+      live: 'https://yourusername.github.io/recruitment-web-app/',
     },
     'project-2': {
       title: 'Project 2',
@@ -21,6 +23,8 @@ export default function ProjectDetails({ params }) {
         { name: 'React Native', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
         { name: 'Firebase', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
       ],
+      github: 'https://github.com/yourusername/project-2',
+      live: 'https://yourusername.github.io/project-2/',
     },
     'project-3': {
       title: 'Project 3',
@@ -29,6 +33,8 @@ export default function ProjectDetails({ params }) {
         { name: 'Python', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
         { name: 'scikit-learn', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg' },
       ],
+      github: 'https://github.com/yourusername/project-3',
+      live: 'https://yourusername.github.io/project-3/',
     },
   };
 
@@ -48,6 +54,26 @@ export default function ProjectDetails({ params }) {
           <div className="flex-1 flex flex-col justify-center items-start bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 md:mb-0">
             <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Project Overview</h2>
             <p className="text-lg text-gray-700 dark:text-gray-300">{project.description}</p>
+            <div className="flex flex-row gap-4 mt-6">
+              <a
+                href={project.github || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg shadow hover:bg-gray-800 transition-colors duration-200"
+              >
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-5 h-5 mr-2" />
+                View on GitHub
+              </a>
+              <a
+                href={project.live || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-colors duration-200"
+              >
+                <img src="/favicon.ico" alt="Web" className="w-5 h-5 mr-2" />
+                View Web Page
+              </a>
+            </div>
           </div>
           {/* Technologies and choices on the right */}
           <div className="flex-1 flex flex-col justify-center items-start bg-gray-100 dark:bg-gray-700 rounded-xl shadow p-8">

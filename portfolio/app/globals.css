@@ -35,6 +35,10 @@ a:hover {
   color: var(--accent-color);
 }
 
+html {
+  scroll-padding-top: 40px; /* Adjust to match your header height */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #1a202c;

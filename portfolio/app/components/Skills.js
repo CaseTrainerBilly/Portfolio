@@ -19,7 +19,7 @@ export default function Skills() {
 
   return (
     <div className="bg-white dark:bg-gray-900">
-      <section id="skills" className="bg-white dark:bg-gray-800 py-12 px-6 rounded-lg shadow-inner">
+      <section id="skills" className="py-20 bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-start pt-8 md:pt-16">
         <h2 className="text-4xl font-bold mb-8 text-center text-gray-800 dark:text-white">Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
           {/* Vertical divider */}

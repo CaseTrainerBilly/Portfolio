@@ -31,12 +31,13 @@ export default function Header() {
             <ul className="flex space-x-8">
               {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
                 <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase()}`} 
+                  <Link 
+                    href={`/#${item.toLowerCase()}`}
+                    scroll={true}
                     className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition duration-300"
                   >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

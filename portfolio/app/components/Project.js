@@ -23,7 +23,7 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-center">
       <h2 className="text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">Featured Projects</h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

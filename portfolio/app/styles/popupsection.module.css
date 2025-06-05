@@ -51,6 +51,17 @@
     padding: 20px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
+    color: #222;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .popupSection {
+      background-color: #23272f;
+      color: #f3f4f6;
+    }
+    .popupSection h2, .popupSection h3, .popupSection span, .popupSection p {
+      color: #f3f4f6;
+    }
   }
   
   /* Close button */
@@ -60,14 +71,26 @@
     right: 10px;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 28px;
     color: #333;
     cursor: pointer;
     transition: color 0.3s ease;
+    font-weight: bold;
+    z-index: 10;
   }
   
   .closeButton:hover {
     color: #ff6b6b;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .closeButton {
+      color: #ffe066;
+      text-shadow: 0 0 6px #222;
+    }
+    .closeButton:hover {
+      color: #ffd700;
+    }
   }
   
   /* Slide-in/out animations */
