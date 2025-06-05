@@ -90,3 +90,111 @@
     transform: translateX(100%);
     transition: transform 0.3s ease;
   }
+  
+  /* Tech grid for skills section */
+.techGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.techItem img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.techItem:hover img {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  z-index: 2;
+}
+
+.techItem span {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+/* Soft skills grid */
+.softSkillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 1.5rem;
+  justify-content: flex-start;
+}
+
+.softSkillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80px;
+  min-height: 90px;
+  padding: 8px 6px 0 6px;
+  border-radius: 8px;
+  background: none;
+  margin-bottom: 8px;
+}
+
+.softSkillItem img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 0.3rem;
+  background: none;
+  border-radius: 6px;
+  display: block;
+}
+
+.softSkillItem span {
+  font-size: 0.92rem;
+  color: #222;
+  font-weight: 500;
+  word-break: break-word;
+  line-height: 1.1;
+  margin-top: 2px;
+  max-width: 72px;
+  overflow-wrap: break-word;
+  white-space: normal;
+  display: block;
+}
+
+.softSkillItem:hover img {
+  transform: scale(1.12);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .popupContent {
+    flex-direction: column;
+    max-width: 98vw;
+    width: 98vw;
+  }
+  .popupSection {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+  }
+  .techGrid {
+    justify-content: center;
+  }
+}
