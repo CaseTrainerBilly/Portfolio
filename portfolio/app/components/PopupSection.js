@@ -36,7 +36,7 @@ const PopupSection = ({ isOpen, onClose }) => {
               <div className={styles.softSkillsGrid}>
                 {[
                   { name: 'Collaboration', image: 'https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/slack.svg' },
-                  { name: 'Teams', image: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg' },
+                  { name: 'Teams', image: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Microsoft_Teams.png' },
                   { name: 'Communication', image: 'https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/zoom.svg' },
                   { name: 'Problem Solving', image: 'https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/stackoverflow.svg' },
                   { name: 'Adaptability', image: 'https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/trello.svg' },
