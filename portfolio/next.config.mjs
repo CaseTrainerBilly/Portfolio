@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     domains: ['picsum.photos'],
   },
-  basePath: '/billyrichardsonportfolio',
-  trailingSlash: true,
+  basePath: '/Portfolio',
+  assetPrefix: '/Portfolio/',
 };
 
 export default nextConfig;
