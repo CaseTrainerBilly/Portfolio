@@ -5,7 +5,7 @@ export default function Contact() {
         <h2 className="text-4xl font-bold mb-8 text-center">Get in Touch</h2>
         <div className="flex flex-col items-center">
           <p className="text-xl mb-6 text-center">
-            I'm always open to new opportunities and collaborations. Feel free to reach out!
+            I&apos;m currently available for freelance projects. If you&apos;d like to work together, feel free to reach out!
           </p>
           <div className="flex space-x-6">
             <a href="https://github.com/CaseTrainerBilly" target="_blank" rel="noopener noreferrer" className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition duration-300">

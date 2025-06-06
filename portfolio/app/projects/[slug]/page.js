@@ -104,6 +104,9 @@ export default function ProjectDetails({ params }) {
 
 // For Next.js app directory routing
 export async function generateStaticParams() {
-  // Example: return [{ slug: 'recruitment-web-app' }, ...]
-  return [];
+  return [
+    { slug: 'recruitment-web-app' },
+    { slug: 'project-2' },
+    { slug: 'project-3' },
+  ];
 }
