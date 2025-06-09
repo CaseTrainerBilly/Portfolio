@@ -5,7 +5,7 @@ export default function Projects() {
     { 
       title: 'Recruitment Web App', 
       description: 'A full-stack recruitment web application built with Next.js, Node.js, Clerk, and MongoDB',
-      image: '/Images/_Transparent logo.png', // Changed to correct public path
+      image: '/Images/_Transparent-logo.png', // Changed to correct public path
       link: 'https://github.com/yourusername/project1'
     },
     { 
