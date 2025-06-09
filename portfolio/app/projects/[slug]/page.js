@@ -47,6 +47,9 @@ export default function ProjectDetails({ params }) {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 p-0">
       <Header/>
+      <head>
+        <title>{project.title} | Portfolio</title>
+      </head>
       <section className="flex flex-col w-full min-h-screen justify-center items-center pt-12 pb-8">
         <h1 className="text-5xl font-bold text-center text-gray-900 dark:text-white mb-12 mt-2">{project.title}</h1>
         <div className="flex flex-col md:flex-row w-full max-w-5xl gap-10 md:gap-20 px-4 md:px-0">
