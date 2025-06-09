@@ -38,6 +38,7 @@ export default function Projects() {
                   alt={project.title} 
                   width={index === 0 ? 340 : 400} 
                   height={index === 0 ? 340 : 400} 
+                  unoptimized
                   className={`object-cover transition-transform duration-300 group-hover:scale-105 ${index === 0 ? 'ml-[-16px]' : ''}`}
                 />
               </div>
