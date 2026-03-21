@@ -12,7 +12,7 @@ export default function ProjectDetails({ params }) {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Header showNav={false} />
+      <Header />
       <ProjectDetailsClient project={project} />
     </div>
   );

@@ -9,9 +9,15 @@ export default function Header({ showNav = true, defaultNavOpen = true }) {
   const navItems = ['About', 'Projects', 'Skills', 'Contact']
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-6xl px-4 pt-4 sm:px-6">
-        <div className="overflow-visible rounded-[28px] border border-gray-200/80 bg-white/90 shadow-lg backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/90">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+      <div className="mx-auto flex max-w-6xl flex-col items-center px-4 pt-4 sm:px-6">
+        <div
+          className={`w-full overflow-hidden rounded-[28px] border border-gray-200/80 bg-white/90 shadow-lg backdrop-blur-md transition-all duration-300 ease-out dark:border-gray-800 dark:bg-gray-900/90 ${
+            !showNav || isNavOpen
+              ? 'pointer-events-auto max-h-80 translate-y-0 opacity-100'
+              : 'max-h-0 -translate-y-4 opacity-0'
+          }`}
+        >
           <nav className="px-5 py-4 sm:px-6">
             <div className="flex items-center justify-between gap-4">
               <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
@@ -38,50 +44,45 @@ export default function Header({ showNav = true, defaultNavOpen = true }) {
           </nav>
 
           {showNav && (
-            <>
-              <div
-                className={`grid transition-all duration-300 ease-out ${
-                  isNavOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                }`}
-              >
-                <div className="overflow-hidden">
-                  <div className="border-t border-gray-200/80 px-5 pb-6 pt-5 dark:border-gray-800 sm:px-6">
-                    <ul className="flex flex-col items-center gap-4 md:flex-row md:justify-center md:gap-8">
-                      {navItems.map((item) => (
-                        <li key={item}>
-                          <Link
-                            href={`/#${item.toLowerCase()}`}
-                            scroll={true}
-                            className="relative text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
-                          >
-                            {item}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+            <div className="overflow-hidden">
+              <div className="border-t border-gray-200/80 px-5 pb-6 pt-5 dark:border-gray-800 sm:px-6">
+                <ul className="flex flex-col items-center gap-4 md:flex-row md:justify-center md:gap-8">
+                  {navItems.map((item) => (
+                    <li key={item}>
+                      <Link
+                        href={`/#${item.toLowerCase()}`}
+                        scroll={true}
+                        className="relative text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="pointer-events-none absolute inset-x-0 -bottom-5 flex justify-center">
-                <button
-                  onClick={() => setIsNavOpen((open) => !open)}
-                  className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:border-sky-700 dark:hover:text-sky-300"
-                  aria-label={isNavOpen ? 'Close navigation' : 'Open navigation'}
-                  aria-expanded={isNavOpen}
-                >
-                  <svg
-                    className={`h-5 w-5 transition-transform duration-300 ${isNavOpen ? 'rotate-180' : 'rotate-0'}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </div>
-            </>
+            </div>
           )}
         </div>
+
+        {showNav && (
+          <div className={`pointer-events-auto transition-all duration-300 ${isNavOpen ? '-mt-1' : 'mt-0'}`}>
+            <button
+              onClick={() => setIsNavOpen((open) => !open)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:border-sky-700 dark:hover:text-sky-300"
+              aria-label={isNavOpen ? 'Close navigation' : 'Open navigation'}
+              aria-expanded={isNavOpen}
+            >
+              <svg
+                className={`h-5 w-5 transition-transform duration-300 ${isNavOpen ? 'rotate-180' : 'rotate-0'}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </header>
   )
