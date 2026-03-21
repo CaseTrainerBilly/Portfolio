@@ -12,11 +12,11 @@ export default function Header({ showNav = true, defaultNavOpen = true }) {
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="mx-auto flex max-w-6xl flex-col items-end px-4 pt-4 sm:px-6">
         <div
-          className={`w-full overflow-hidden transition-all duration-300 ease-out ${
+          className={`relative z-10 w-full overflow-hidden rounded-[28px] transition-all duration-300 ease-out ${
             !showNav || isNavOpen ? 'max-h-40 opacity-100 translate-y-0' : 'pointer-events-none max-h-0 -translate-y-4 opacity-0'
           }`}
         >
-          <nav className="pointer-events-auto rounded-[28px] border border-gray-200/80 bg-white/90 px-5 py-4 shadow-lg backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/90 sm:px-6">
+          <nav className="pointer-events-auto rounded-[28px] border border-gray-200/80 bg-white/90 px-5 py-4 shadow-[0_18px_45px_rgba(15,23,42,0.12)] backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/90 dark:shadow-[0_18px_45px_rgba(2,6,23,0.45)] sm:px-6">
             <div className="flex items-center gap-4">
               <Link href="/" className="shrink-0 text-2xl font-bold text-gray-900 transition-colors duration-300 hover:text-blue-600 dark:text-white dark:hover:text-blue-400">
                 BR
@@ -64,8 +64,8 @@ export default function Header({ showNav = true, defaultNavOpen = true }) {
         {showNav && (
           <button
             onClick={() => setIsNavOpen((open) => !open)}
-            className={`pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:border-sky-700 dark:hover:text-sky-300 ${
-              isNavOpen ? '-mt-5 mr-5' : 'mt-0'
+            className={`pointer-events-auto relative z-20 inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:border-sky-700 dark:hover:text-sky-300 ${
+              isNavOpen ? '-mt-4 mr-5' : 'mt-0'
             }`}
             aria-label={isNavOpen ? 'Close navigation' : 'Open navigation'}
             aria-expanded={isNavOpen}
