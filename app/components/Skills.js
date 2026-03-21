@@ -19,7 +19,7 @@ export default function Skills() {
 
   return (
     <div className="bg-white dark:bg-gray-900">
-      <section id="skills" className="py-24 lg:py-32 bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-center scroll-mt-28">
+      <section id="skills" className="flex min-h-[100svh] flex-col justify-center bg-white py-24 dark:bg-gray-900 lg:py-32 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-center text-gray-900 dark:text-white">Skills & Expertise</h2>
           <p className="text-center text-gray-600 dark:text-gray-400 mb-16 text-lg max-w-2xl mx-auto">

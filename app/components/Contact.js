@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
-    <section id="contact" className="w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white py-24 lg:py-32 scroll-mt-28">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="flex min-h-[100svh] w-full flex-col justify-center bg-gradient-to-br from-gray-50 to-gray-100 py-24 text-gray-900 dark:from-gray-800 dark:to-gray-900 dark:text-white lg:py-32 scroll-mt-28">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">Get in Touch</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">

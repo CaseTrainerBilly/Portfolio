@@ -5,7 +5,7 @@ import { projects } from '../data/projects'
 export default function Projects() {
   return (
     <section
-      className="relative py-24 lg:py-32 bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-white py-24 dark:bg-gray-900 lg:py-32 scroll-mt-28"
     >
       <div id="projects" className="absolute top-40 scroll-mt-32" />
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-sky-100/70 to-transparent dark:from-sky-950/30 pointer-events-none" />
