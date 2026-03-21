@@ -1,9 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function ProjectDetailsClient({ project }) {
+  const router = useRouter();
+
   const imageSections =
     project.imageSections?.length > 0
       ? project.imageSections
@@ -14,14 +16,33 @@ export default function ProjectDetailsClient({ project }) {
           details: [],
         }));
 
+  const handleBackClick = () => {
+    const referrer = document.referrer;
+    const hasSameOriginReferrer =
+      referrer && new URL(referrer).origin === window.location.origin;
+
+    if (hasSameOriginReferrer && window.history.length > 1) {
+      router.back();
+      return;
+    }
+
+    router.push('/#projects');
+  };
+
   return (
-    <main className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
-      <Link
-        href="/#projects"
-        className="inline-flex items-center mb-8 text-sm font-medium text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition"
+    <main className="max-w-7xl mx-auto px-6 pb-12 pt-32 lg:pb-16 lg:pt-36">
+      <button
+        type="button"
+        onClick={handleBackClick}
+        className="group mb-10 inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white/90 px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-sky-200 hover:text-slate-950 hover:shadow-md dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-200 dark:hover:border-sky-700 dark:hover:text-white"
       >
-        ← Back to Projects
-      </Link>
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors duration-200 group-hover:bg-sky-100 group-hover:text-sky-700 dark:bg-slate-800 dark:text-slate-200 dark:group-hover:bg-sky-950 dark:group-hover:text-sky-300">
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </span>
+        <span>Back to Projects</span>
+      </button>
 
       <section className="mb-10">
         <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
