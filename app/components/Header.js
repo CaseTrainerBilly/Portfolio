@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from '../context/ThemeContext'
 
-export default function Header({ showNav = true, defaultNavOpen = true }) {
+export default function Header({ showNav = true, defaultNavOpen = false }) {
   const { theme, toggleTheme } = useTheme()
   const [isNavOpen, setIsNavOpen] = useState(defaultNavOpen)
   const navItems = ['About', 'Projects', 'Skills', 'Contact']
