@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-white py-24 dark:bg-gray-900 lg:py-32 scroll-mt-28"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-white py-24 dark:bg-gray-900 lg:py-32"
     >
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-sky-100/70 to-transparent dark:from-sky-950/30 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
