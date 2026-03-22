@@ -20,15 +20,28 @@ const reasonLabels = {
 
 export default function ContactFormClient() {
   const [form, setForm] = useState(initialForm)
+  const [copyState, setCopyState] = useState('idle')
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setForm((current) => ({ ...current, [name]: value }))
   }
 
+  const subject = `${reasonLabels[form.reason]} from ${form.name || 'New contact'}`
+  const body = [
+    `To: Billy Richardson <billyjobalerts38467@outlook.com>`,
+    '',
+    `Name: ${form.name || '-'}`,
+    `Email: ${form.email || '-'}`,
+    `Company: ${form.company || '-'}`,
+    `Role: ${form.role || '-'}`,
+    `Reason: ${reasonLabels[form.reason]}`,
+    '',
+    form.message || '',
+  ].join('\n')
+
   const buildMailtoHref = () => {
-    const subject = `${reasonLabels[form.reason]} from ${form.name || 'New contact'}`
-    const body = [
+    const emailBody = [
       `Name: ${form.name || '-'}`,
       `Email: ${form.email || '-'}`,
       `Company: ${form.company || '-'}`,
@@ -38,7 +51,7 @@ export default function ContactFormClient() {
       form.message || '',
     ].join('\n')
 
-    return `mailto:billyjobalerts38467@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    return `mailto:billyjobalerts38467@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`
   }
 
   const openEmailDraft = () => {
@@ -52,6 +65,19 @@ export default function ContactFormClient() {
   }
 
   const mailtoHref = buildMailtoHref()
+  const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent('billyjobalerts38467@outlook.com')}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  const outlookHref = `https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent('billyjobalerts38467@outlook.com')}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(`${subject}\n\n${body}`)
+      setCopyState('copied')
+      window.setTimeout(() => setCopyState('idle'), 2500)
+    } catch {
+      setCopyState('failed')
+      window.setTimeout(() => setCopyState('idle'), 2500)
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit} className="rounded-[32px] border border-slate-200/80 bg-white/95 p-8 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/95 sm:p-10">
@@ -102,7 +128,7 @@ export default function ContactFormClient() {
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-6 text-slate-500 dark:text-slate-400">
-          Submitting opens your email app with everything prefilled, ready to send.
+          Use your local email app, Gmail, Outlook Web, or copy the drafted message.
         </p>
         <div className="flex flex-col items-start gap-3 sm:items-end">
           <button
@@ -112,12 +138,43 @@ export default function ContactFormClient() {
             Create Email Draft
           </button>
 
-          <a
-            href={mailtoHref}
-            className="text-sm font-medium text-sky-600 underline-offset-4 transition hover:text-sky-700 hover:underline dark:text-sky-400 dark:hover:text-sky-300"
-          >
-            If nothing opens, use this fallback email link
-          </a>
+          <div className="flex flex-wrap gap-3 text-sm font-medium">
+            <a
+              href={mailtoHref}
+              className="text-sky-600 underline-offset-4 transition hover:text-sky-700 hover:underline dark:text-sky-400 dark:hover:text-sky-300"
+            >
+              Email app
+            </a>
+            <a
+              href={gmailHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-600 underline-offset-4 transition hover:text-sky-700 hover:underline dark:text-sky-400 dark:hover:text-sky-300"
+            >
+              Gmail
+            </a>
+            <a
+              href={outlookHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-600 underline-offset-4 transition hover:text-sky-700 hover:underline dark:text-sky-400 dark:hover:text-sky-300"
+            >
+              Outlook Web
+            </a>
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="text-sky-600 underline-offset-4 transition hover:text-sky-700 hover:underline dark:text-sky-400 dark:hover:text-sky-300"
+            >
+              Copy message
+            </button>
+          </div>
+
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            {copyState === 'copied' && 'Copied subject and message to your clipboard.'}
+            {copyState === 'failed' && 'Clipboard copy failed. Try Gmail or Outlook Web instead.'}
+            {copyState === 'idle' && 'If your browser blocks mailto, Gmail and Outlook Web will still work.'}
+          </p>
         </div>
       </div>
     </form>
