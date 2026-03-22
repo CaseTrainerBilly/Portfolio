@@ -26,9 +26,7 @@ export default function ContactFormClient() {
     setForm((current) => ({ ...current, [name]: value }))
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-
+  const buildMailtoHref = () => {
     const subject = `${reasonLabels[form.reason]} from ${form.name || 'New contact'}`
     const body = [
       `Name: ${form.name || '-'}`,
@@ -40,8 +38,20 @@ export default function ContactFormClient() {
       form.message || '',
     ].join('\n')
 
-    window.location.href = `mailto:billyjobalerts38467@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    return `mailto:billyjobalerts38467@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
+
+  const openEmailDraft = () => {
+    const mailtoHref = buildMailtoHref()
+    window.location.assign(mailtoHref)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    openEmailDraft()
+  }
+
+  const mailtoHref = buildMailtoHref()
 
   return (
     <form onSubmit={handleSubmit} className="rounded-[32px] border border-slate-200/80 bg-white/95 p-8 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/95 sm:p-10">
@@ -94,12 +104,21 @@ export default function ContactFormClient() {
         <p className="text-sm leading-6 text-slate-500 dark:text-slate-400">
           Submitting opens your email app with everything prefilled, ready to send.
         </p>
-        <button
-          type="submit"
-          className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
-        >
-          Create Email Draft
-        </button>
+        <div className="flex flex-col items-start gap-3 sm:items-end">
+          <button
+            type="submit"
+            className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+          >
+            Create Email Draft
+          </button>
+
+          <a
+            href={mailtoHref}
+            className="text-sm font-medium text-sky-600 underline-offset-4 transition hover:text-sky-700 hover:underline dark:text-sky-400 dark:hover:text-sky-300"
+          >
+            If nothing opens, use this fallback email link
+          </a>
+        </div>
       </div>
     </form>
   )
