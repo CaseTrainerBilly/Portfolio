@@ -64,7 +64,7 @@ export const projects = [
       'A research-focused scraper that captures eBay listings, pricing, seller details, and market signals for faster product analysis.',
     longDescription:
       'This project is designed to speed up marketplace research by collecting listing data from eBay search results and turning it into something easier to compare. It is set up to surface titles, prices, shipping costs, seller information, and useful patterns that help with resale, sourcing, or competitor research. The entry is ready for your exact repo, screenshots, and final tech stack once you share the attached project details.',
-    image: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/Images/Ebay_Web.png',
     link: 'https://github.com/yourusername/ebay-scraper',
     slug: 'ebay-marketplace-scraper',
     accent: 'from-amber-500/30 via-orange-500/10 to-transparent',
