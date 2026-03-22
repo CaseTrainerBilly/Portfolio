@@ -5,7 +5,7 @@ export const projects = [
       'A full-stack recruitment platform built to streamline candidate pipelines, team collaboration, and hiring workflows.',
     longDescription:
       'This recruitment platform brings together candidate tracking, interview coordination, and internal collaboration in one place. It focuses on giving recruiters a faster way to review applicants, keep hiring teams aligned, and manage the process from first contact to offer stage.',
-    image: '/Images/_Transparent-logo.png',
+    image: '/Images/_Main square logo.png',
     link: 'https://casetrainerbilly.github.io/OverBuildRec/',
     slug: 'recruitment-web-app',
     accent: 'from-sky-500/20 via-cyan-500/10 to-transparent',
