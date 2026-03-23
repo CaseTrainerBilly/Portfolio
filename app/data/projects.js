@@ -6,7 +6,7 @@ export const projects = [
     longDescription:
       'This recruitment platform brings together candidate tracking, interview coordination, and internal collaboration in one place. It focuses on giving recruiters a faster way to review applicants, keep hiring teams aligned, and manage the process from first contact to offer stage.',
     image: '/Portfolio/Images/_Main square logo.png',
-    link: 'https://casetrainerbilly.github.io/OverBuildRec/',
+    link: 'https://github.com/CaseTrainerBilly/OverBuildRec',
     slug: 'recruitment-web-app',
     accent: 'from-sky-500/20 via-cyan-500/10 to-transparent',
     technologies: [
@@ -59,20 +59,21 @@ export const projects = [
     live: 'https://casetrainerbilly.github.io/OverBuildRec/',
   },
   {
-    title: 'eBay Marketplace Scraper',
+    title: 'eBay Sold Items Research App',
     description:
-      'A research-focused scraper that captures eBay listings, pricing, seller details, and market signals for faster product analysis.',
+      'A Flask app that uses a real Playwright Chromium session to research sold eBay listings, filter noisy results, calculate reseller metrics, and export the visible set to XLSX.',
     longDescription:
-      'This project is designed to speed up marketplace research by collecting listing data from eBay search results and turning it into something easier to compare. It is set up to surface titles, prices, shipping costs, seller information, and useful patterns that help with resale, sourcing, or competitor research. The entry is ready for your exact repo, screenshots, and final tech stack once you share the attached project details.',
+      'This app solves a practical resale research problem: standard HTTP scraping is unreliable on eBay, so the workflow opens a real Playwright-powered Chromium browser with a persistent profile and lets the user complete challenge pages once in a normal browser window. From there, the app searches sold items on eBay UK or US, filters irrelevant cards, applies reseller-oriented pricing assumptions, shows market metrics in a Flask UI, and exports the current result set to an XLSX file with embedded images.',
     image: '/Portfolio/Images/Ebay_Web.png',
-    link: 'https://github.com/yourusername/ebay-scraper',
+    link: 'https://github.com/CaseTrainerBilly/ebay_playwright_app',
     slug: 'ebay-marketplace-scraper',
     accent: 'from-amber-500/30 via-orange-500/10 to-transparent',
     technologies: [
       { name: 'Python', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-      { name: 'BeautifulSoup', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-      { name: 'Pandas', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
-      { name: 'CSV Export', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/filezilla/filezilla-original.svg' },
+      { name: 'Flask', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
+      { name: 'Playwright', image: 'https://playwright.dev/img/playwright-logo.svg' },
+      { name: 'Jinja', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+      { name: 'CSS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     ],
     gallery: [
       'https://images.pexels.com/photos/7947663/pexels-photo-7947663.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -82,40 +83,40 @@ export const projects = [
     imageSections: [
       {
         image: 'https://images.pexels.com/photos/7947663/pexels-photo-7947663.jpeg?auto=compress&cs=tinysrgb&w=800',
-        title: 'Search Capture',
+        title: 'Persistent Browser Search Flow',
         description:
-          'The scraper starts by targeting search result pages and collecting the core listing data needed for comparison.',
+          'The app launches a real Chromium window with a saved Playwright profile so challenge pages can be cleared once and later searches feel much more reliable.',
         details: [
-          'Collects titles, prices, and listing URLs',
-          'Designed for repeatable marketplace research',
-          'Keeps the output focused on actionable listing data',
+          'Uses headful Playwright with a persistent browser profile',
+          'Supports sold listing searches on eBay UK and eBay US',
+          'Lets the user recover from challenge pages in a real browser session',
         ],
       },
       {
         image: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
-        title: 'Listing Breakdown',
+        title: 'Filtering and Pricing Logic',
         description:
-          'Each item can be enriched with extra information like shipping, seller details, and listing condition to improve decision making.',
+          'Raw sold cards are cleaned and filtered, then reseller-focused calculations estimate average pricing, spread, ROI, and a recommended max buy price.',
         details: [
-          'Adds context beyond headline pricing',
-          'Makes product sourcing easier to compare',
-          'Supports richer data analysis after collection',
+          'Removes mismatched or irrelevant sold listings',
+          'Applies UK-specific buyer-protection and payout assumptions',
+          'Calculates median, average, spread, ROI, and buy ceiling guidance',
         ],
       },
       {
         image: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800',
-        title: 'Export and Analysis',
+        title: 'Flask UI and XLSX Export',
         description:
-          'The final stage turns raw scraped data into something usable, ready for spreadsheets, reporting, or further automation.',
+          'The Flask interface shows cached result sets, item detail pages, and an XLSX export flow that reuses the current search without rerunning the scraper.',
         details: [
-          'Prepared for CSV or dataframe output',
-          'Useful for resale, trend, or competitor research',
-          'Easy to extend once your real project files are added',
+          'Renders results in server-side Flask templates with Jinja',
+          'Includes item-level market context from cached results',
+          'Exports spreadsheets with embedded images from the current visible result set',
         ],
       },
     ],
-    github: 'https://github.com/yourusername/ebay-scraper',
-    live: '',
+    github: 'https://github.com/CaseTrainerBilly/ebay_playwright_app',
+    live: 'https://casetrainerbilly.github.io/ebay_playwright_app/',
   },
   {
     title: 'AI Analytics Dashboard',
