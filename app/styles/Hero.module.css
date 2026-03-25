@@ -99,7 +99,6 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
-  border: 1px solid red; /* Temporary border for debugging */
 }
 
 @keyframes bounce {
