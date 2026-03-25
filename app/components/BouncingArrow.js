@@ -5,12 +5,23 @@ const BouncingArrow = () => {
     <a
       href="#projects"
       aria-label="Scroll to projects"
-      className="flex items-center justify-center rounded-full border border-white/50 bg-white/70 p-3 text-sky-700 shadow-lg backdrop-blur transition hover:-translate-y-1 dark:border-slate-700 dark:bg-slate-900/70 dark:text-sky-300"
+      className="group inline-flex items-center justify-center px-3 py-2 text-slate-600 transition hover:-translate-y-1 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-300"
     >
-      <div className="animate-bounce flex justify-center items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" className="text-current">
-          <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"/>
-          <path d="M12 12.586 8.707 9.293l-1.414 1.414L12 15.414l4.707-4.707-1.414-1.414L12 12.586z"/>
+      <div className="animate-bounce flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="drop-shadow-sm"
+        >
+          <path d="M12 5v14" />
+          <path d="m5 12 7 7 7-7" />
         </svg>
       </div>
     </a>
