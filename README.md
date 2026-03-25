@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) portfolio configured for static export and GitHub Pages deployment.
 
 ## Getting Started
 
@@ -14,11 +14,24 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/Portfolio](http://localhost:3000/Portfolio) with your browser to see the result when testing the production base path locally, or [http://localhost:3000](http://localhost:3000) during normal development.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## GitHub Pages
+
+Push the `github-pages` branch to GitHub and enable GitHub Pages with the "GitHub Actions" source.
+
+Useful commands:
+
+```bash
+npm run build
+npm run deploy
+```
+
+`npm run build` creates the static site in `out/` and adds the `.nojekyll` file required for GitHub Pages compatibility.
 
 ## Learn More
 

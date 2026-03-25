@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postexport": "node -e \"require('fs').writeFileSync('out/.nojekyll', '')\"",
-    "export": "next build && next export && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\"",
+    "postbuild": "node -e \"require('fs').writeFileSync('out/.nojekyll', '')\"",
+    "export": "npm run build",
     "deploy": "gh-pages -d out --dotfiles",
     "dev": "next dev",
     "build": "next build",
