@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Billy Richardson Portfolio
+
+A personal portfolio built with Next.js 14, React, and Tailwind CSS. The site highlights featured projects, gives each project its own detail page, and includes a recruiter-friendly contact flow that can open drafted emails in the user's mail app, Gmail, or Outlook Web.
+
+## Highlights
+
+- App Router-based Next.js portfolio
+- Animated hero section with interactive shapes and a bouncing scroll cue
+- Featured projects grid powered by a central data file
+- Dynamic project detail pages generated from project slugs
+- Theme toggle with light and dark mode support
+- Dedicated contact page with prefilled email drafting options
+- Static export and GitHub Pages deployment scripts
+
+## Tech Stack
+
+- Next.js 14
+- React 18
+- Tailwind CSS
+- ESLint
+- GitHub Pages for static deployment
+
+## Project Structure
+
+```text
+app/
+  components/          Reusable UI sections such as Hero, Header, Projects, Skills, and Contact
+  contact/             Dedicated contact page and client-side contact form
+  context/             Theme context for light/dark mode
+  data/                Portfolio project content and metadata
+  projects/[slug]/     Dynamic project detail route
+  styles/              Component-scoped styling for hero and popup sections
+public/Images/         Portfolio images and project artwork
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `npm run dev` - start the local development server
+- `npm run build` - create a production build
+- `npm run start` - run the production server locally
+- `npm run lint` - run ESLint
+- `npm run export` - build and export a static version of the site into `out/`
+- `npm run deploy` - publish the exported `out/` directory to GitHub Pages
 
-## Learn More
+## Content Updates
 
-To learn more about Next.js, take a look at the following resources:
+Most portfolio content lives in [`app/data/projects.js`](./app/data/projects.js).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Update that file to:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- add or remove featured projects
+- change project copy
+- swap project images
+- update technology badges
+- define gallery sections for each project detail page
 
-## Deploy on Vercel
+You will likely also want to update:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [`app/components/Hero.js`](./app/components/Hero.js) for the homepage intro
+- [`app/components/Contact.js`](./app/components/Contact.js) for contact callouts and profile links
+- [`app/contact/ContactFormClient.js`](./app/contact/ContactFormClient.js) for email destination or contact form behaviour
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deployment
+
+This project already includes a GitHub Pages flow:
+
+```bash
+npm run export
+npm run deploy
+```
+
+The export step writes a `.nojekyll` file into `out/` so static assets work correctly on GitHub Pages.
+
+## Notes
+
+- The project uses the Next.js App Router.
+- Project detail pages are generated from the slugs defined in `app/data/projects.js`.
+- Some project and metadata values are still placeholders and can be swapped for final production content.
