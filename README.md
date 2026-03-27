@@ -1,4 +1,4 @@
-# Billy Richardson Portfolio
+# Billy Richardson Portfolio version 2.0
 
 A personal portfolio built with Next.js 14, React, and Tailwind CSS. The site highlights featured projects, gives each project its own detail page, and includes a recruiter-friendly contact flow that can open drafted emails in the user's mail app, Gmail, or Outlook Web.
 
